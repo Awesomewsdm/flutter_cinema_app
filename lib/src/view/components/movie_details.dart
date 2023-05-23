@@ -60,17 +60,37 @@ class MovieDetails extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      ChipWidget(
-                        label: "IMDB ${movie.imdbRating}",
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: ChipWidget(
+                          label: "IMDB ${movie.imdbRating}",
+                        ),
                       ),
-                      ChipWidget(label: movie.genre),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: ChipWidget(label: movie.genre),
+                      ),
                       ChipWidget(label: movie.genre),
                     ],
                   ),
                   const SizedBox(
                     height: 15,
                   ),
-                  const ChipWidget(label: "Book Ticket"),
+                  ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(24),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 25,
+                            vertical: 15,
+                          )),
+                      child: const Text(
+                        "Book Ticket",
+                        style: TextStyle(color: Colors.black),
+                      )),
                 ],
               ),
             ),

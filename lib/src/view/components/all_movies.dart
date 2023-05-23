@@ -13,17 +13,19 @@ class MovieList extends StatelessWidget {
 
   Route _goToMovieDetailsPage() {
     return PageRouteBuilder(
+      reverseTransitionDuration: const Duration(microseconds: 600),
+      transitionDuration: const Duration(milliseconds: 600),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(0, 1);
-        const end = Offset(0, 0);
-        const curve = Curves.ease;
+        // const begin = Offset(0, 1);
+        // const end = Offset(0, 0);
+        // const curve = Curves.bounceInOut;
 
-        var tween = Tween(begin: begin, end: end).chain(
-          CurveTween(curve: curve),
-        );
+        // // var tween = Tween(begin: begin, end: end).chain(
+        // //   CurveTween(curve: curve),
+        // // );
 
-        return SlideTransition(
-          position: animation.drive(tween),
+        return FadeTransition(
+          opacity: animation,
           child: child,
         );
       },
