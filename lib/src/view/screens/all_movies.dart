@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movies/src/model/movie_model.dart';
 import 'package:flutter_movies/src/view/components/app_chip.dart';
-import 'package:flutter_movies/src/view/components/movie_details.dart';
+import 'package:flutter_movies/src/view/screens/movie_details.dart';
 
 class MovieList extends StatelessWidget {
   const MovieList({
@@ -19,11 +19,9 @@ class MovieList extends StatelessWidget {
         // const begin = Offset(0, 1);
         // const end = Offset(0, 0);
         // const curve = Curves.bounceInOut;
-
         // // var tween = Tween(begin: begin, end: end).chain(
         // //   CurveTween(curve: curve),
         // // );
-
         return FadeTransition(
           opacity: animation,
           child: child,
@@ -53,11 +51,14 @@ class MovieList extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(50),
-              child: Image.network(
-                movie.image,
-                height: 535,
-                width: 300,
-                fit: BoxFit.cover,
+              child: Hero(
+                tag: movie.name,
+                child: Image.network(
+                  movie.image,
+                  height: 535,
+                  width: 300,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Padding(
@@ -67,22 +68,19 @@ class MovieList extends StatelessWidget {
                 children: [
                   ChipWidget(label: "IMDB ${movie.imdbRating}"),
                   const Spacer(),
-                  Hero(
-                    tag: movie.name,
-                    child: Text(
-                      movie.name,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
-                        shadows: [
-                          Shadow(
-                            color: Colors.black54,
-                            offset: Offset(0, 1),
-                            blurRadius: 10,
-                          ),
-                        ],
-                      ),
+                  Text(
+                    movie.name,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                      shadows: [
+                        Shadow(
+                          color: Colors.black54,
+                          offset: Offset(0, 1),
+                          blurRadius: 10,
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(
@@ -102,7 +100,7 @@ class MovieList extends StatelessWidget {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

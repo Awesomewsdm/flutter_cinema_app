@@ -1,8 +1,7 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_movies/src/model/movie_model.dart';
-import 'package:flutter_movies/src/view/components/all_movies.dart';
+import 'package:flutter_movies/src/view/screens/all_movies.dart';
 import 'package:flutter_movies/src/view/components/bottom_nav_bar.dart';
 import 'package:flutter_movies/src/view/components/top_menu_bar.dart';
 
